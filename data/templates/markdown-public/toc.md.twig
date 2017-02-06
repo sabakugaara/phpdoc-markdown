@@ -4,7 +4,7 @@
 {% if not class.abstract %}
 * {{ anchorLink(class.name) }}
 {% for method in publicMethods(class) %}
-    * {{ anchorLink(method.name) }}
+    * {{ anchorLink(method.name) }} {{ method.summary }}
 {% endfor %}
 {% endif %}
 {% endfor %}

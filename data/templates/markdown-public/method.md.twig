@@ -10,35 +10,34 @@
 {{- argument.name }}{{ argument.default ? ' = '~argument.default }}
 {%- if not loop.last %}, {% endif %}
 {%- endfor %} )
-{{- method.response.types ? ': '~method.response.types|join('|') }}
 ```
 
-{{ method.description|raw }}
+  {{ method.description|raw }}
 
-{% if method.static %}* This method is **static**.{% endif %}
-{% if method.deprecated %}* **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
+{% if method.static %}*  **静态方法**.{% endif %}
+{% if method.deprecated %}* **Warning:** 该方法**已经弃用**. 新版本可能会移除该方法 
 {% endif %}
 
 {% if method.arguments is not empty %}
-**Parameters:**
+**参数列表:**
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
 {% for argument in method.arguments %}
-| `{{ argument.name }}` | **{{ argument.types ? argument.types|join('&#124;')|raw }}** | {{ argument.description|replace({'|': '&#124;'})|raw }} |
+
+- **{{ argument.types ? argument.types|join('&#124;')|raw }}** `{{ argument.name }}`  
+  {{ argument.description|replace({'|': '&#124;', "\n": "\n  "})|raw }}
 {% endfor %}
 
 {% endif %}{# method.arguments is not empty #}
 
 {% if method.response.description %}
-**Return Value:**
+**返回值：**
 
 {{ method.response.description|raw }}
 
 {% endif %}
 
 {% if method.tags.see is not empty or method.tags.link is not empty %}
-**See Also:**
+**更多：**
 
 {% for see in method.tags.see %}
 * {{ see.reference }} {% if see.description %}- {{ see.description|raw }}{% endif %}
@@ -50,4 +49,5 @@
 {% endif %}{# method.tags.see || method.tags.link #}
 
 ---
+
 

@@ -2,14 +2,15 @@
 
 {{ class.summary|raw }}
 
-{{ class.description|raw }}
+  {{ class.description|raw }}
 
-* Full name: {{ class.FullyQualifiedStructuralElementName }}
-{% if class.parent %}* Parent class: {{ class.parent.FullyQualifiedStructuralElementName }}
+*  命名空间: {{ class.FullyQualifiedStructuralElementName }}
+{% if class.parent %}* 父类: {{ class.parent.FullyQualifiedStructuralElementName }}
 {% endif %}
-{% if class.interfaces is not empty %}* This class implements: {{ class.interfaces|join(', ')|raw }}
+{% if class.interfaces is not empty %}*  继承的接口: {{ class.interfaces|join(', ')|raw }}
 {% endif %}
-{% if class.deprecated %}* **Warning:** this class is **deprecated**. This means that this class will likely be removed in a future version.
+{% if class.deprecated %}* **Warning:**  该类已经 **弃用**。新版本可能会移除该类
+
 {% endif %}
 
 {% if class.tags.see is not empty or class.tags.link is not empty %}

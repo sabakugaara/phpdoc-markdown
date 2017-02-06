@@ -1,13 +1,17 @@
 {
-    "name": "cvuorinen/phpdoc-markdown-public",
-    "description": "phpDocumentor template that generates Markdown documentation of the public API",
+    "name": "gaara/phpdoc-markdown",
+    "description": "phpDocumentor template that generates Markdown documentation of the public API fork from cvuorinen/phpdoc-markdown-public",
     "keywords" : [ "PHPDoc", "phpDocumentor", "Documentation", "Markdown" ],
-    "homepage" : "https://github.com/cvuorinen/phpdoc-markdown-public",
+    "homepage" : "https://github.com/sabakugaara/phpdoc-markdown",
     "license": "MIT",
     "authors": [
         {
             "name": "Carl Vuorinen",
             "email": "carl.vuorinen@gmail.com"
+        },
+        {
+            "name": "Gaara",
+            "email": "senellise@gmail.com"
         }
     ],
     "require": {
@@ -15,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Cvuorinen\\PhpdocMarkdownPublic\\": "src"
+            "Gaara\\PhpdocMarkdown\\": "src"
         }
     }
 }
